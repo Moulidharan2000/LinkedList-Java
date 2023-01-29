@@ -28,19 +28,24 @@ public class LinkedList {
 	        newNode.next = current.next;
 	        current.next = newNode;
 	    }
-	public void PopLast() {
-		
-		if(head == null)
-			return;
-		if(head.next == null) {
-			head = null;
-			return;
+	public void Search(Object searchData) {
+		if(head.data == searchData)
+			System.out.println(searchData+" is Found");
+		else {
+			Node temp = head;
+			boolean isFound = false;
+			while(temp != null) {
+				if(temp.data == searchData) {
+					isFound = true;
+					break;
+				}
+				temp = temp.next;
+			}
+			if(isFound == true)
+				System.out.println(searchData+" is Found");
+			else
+				System.out.println(searchData+" is Not Found");
 		}
-		Node current = head;
-		while(current.next.next != null) {
-			current = current.next;
-		}
-		current.next = null;
 	}
 	
 	public void Display() {
@@ -61,7 +66,7 @@ public class LinkedList {
 		list.Add(56);
 		list.insert(30, 56);
 		list.Display();
-		list.PopLast();
-		list.Display();		
+		list.Search(30);
+		
 	}
 }

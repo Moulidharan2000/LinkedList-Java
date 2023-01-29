@@ -8,7 +8,7 @@ public class LinkedList {
 		this.head = null;
 	}
 	
-	public void Append(Object data) {
+	public void Add(Object data) {
 		
 		Node newNode = new Node(data);
 		
@@ -19,6 +19,15 @@ public class LinkedList {
 			head = newNode;
 		}
 	}
+	public void insert(Object data, Object key) {
+	        Node newNode = new Node(data);
+	        Node current = head;
+	        while (current.data != key) {
+	            current = current.next;
+	        }
+	        newNode.next = current.next;
+	        current.next = newNode;
+	    }
 	
 	public void Display() {
 		Node temp = head;
@@ -34,9 +43,9 @@ public class LinkedList {
 	public static void main(String[] args) {
 		
 		LinkedList list = new LinkedList();
-		list.Append(70);
-		list.Append(30);
-		list.Append(56);
+		list.Add(70);
+		list.Add(56);
+		list.insert(30, 56);
 		list.Display();
 	}
 }

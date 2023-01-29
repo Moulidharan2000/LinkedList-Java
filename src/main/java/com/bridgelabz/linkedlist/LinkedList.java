@@ -67,6 +67,7 @@ public class LinkedList {
 		list.insert(30, 56);
 		list.Display();
 		list.Search(30);
-		
+		list.insert(40, 30);
+		list.Display();
 	}
 }

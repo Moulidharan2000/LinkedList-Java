@@ -8,37 +8,35 @@ public class LinkedList {
 		this.head = null;
 	}
 	
-	public void AddFirst(Object data) {
+	public void Append(Object data) {
 		
 		Node newNode = new Node(data);
 		
 		if(head == null) 
 			head = newNode;
 		else {
-			Node temp = head;
+			newNode.next = head;
 			head = newNode;
-			head.next = temp;
 		}
 	}
 	
 	public void Display() {
 		Node temp = head;
 		while(temp != null) {
-			if(temp == null)
-				break;
-			else {
-			System.out.print(temp.data + " => ");
+			if(temp.next != null)
+				System.out.print(temp.data + " => ");
+			else 
+				System.out.print(temp.data + "\n");
 			temp = temp.next;
-			}
 		}
 	}
 
 	public static void main(String[] args) {
 		
 		LinkedList list = new LinkedList();
-		list.AddFirst(70);
-		list.AddFirst(30);
-		list.AddFirst(56);
+		list.Append(70);
+		list.Append(30);
+		list.Append(56);
 		list.Display();
 	}
 }

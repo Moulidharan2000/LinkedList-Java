@@ -28,10 +28,19 @@ public class LinkedList {
 	        newNode.next = current.next;
 	        current.next = newNode;
 	    }
-	public void Pop() {
+	public void PopLast() {
 		
-		if(head != null)
-			head = head.next;
+		if(head == null)
+			return;
+		if(head.next == null) {
+			head = null;
+			return;
+		}
+		Node current = head;
+		while(current.next.next != null) {
+			current = current.next;
+		}
+		current.next = null;
 	}
 	
 	public void Display() {
@@ -52,7 +61,7 @@ public class LinkedList {
 		list.Add(56);
 		list.insert(30, 56);
 		list.Display();
-		list.Pop();
+		list.PopLast();
 		list.Display();		
 	}
 }

@@ -28,6 +28,11 @@ public class LinkedList {
 	        newNode.next = current.next;
 	        current.next = newNode;
 	    }
+	public void Pop() {
+		
+		if(head != null)
+			head = head.next;
+	}
 	
 	public void Display() {
 		Node temp = head;
@@ -47,5 +52,7 @@ public class LinkedList {
 		list.Add(56);
 		list.insert(30, 56);
 		list.Display();
+		list.Pop();
+		list.Display();		
 	}
 }
